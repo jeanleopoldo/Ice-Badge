@@ -5,7 +5,8 @@ public enum TypeTile {
 	GROUND,
 	GRASS,
 	MOUNTAIN,
-	MAIN_BASE,
+	MAIN_BASE_1,
+	MAIN_BASE_2,
 	TREE,
 	ROCK;
 

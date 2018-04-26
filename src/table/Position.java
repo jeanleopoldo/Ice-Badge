@@ -2,7 +2,6 @@ package table;
 
 import game.Character;
 
-
 public class Position {
 
 	protected int x_;
@@ -27,6 +26,16 @@ public class Position {
 
 	public TypeTile get_tile() {
 		return this.type_;
+	}
+
+	public void set_tile(TypeTile type) {
+		this.type_ = type;
+
+	}
+
+	public void remove_character() {
+		this.character_ = null;
+
 	}
 
 }

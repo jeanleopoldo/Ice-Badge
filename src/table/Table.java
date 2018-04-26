@@ -21,6 +21,11 @@ public class Table {
 			}
 		}
 	}
+	
+	public void set_main_bases() {
+		this.positions_[0][15].set_tile(TypeTile.MAIN_BASE_1);
+		this.positions_[31][15].set_tile(TypeTile.MAIN_BASE_2);
+	}
 
 	public Position get_position(int x, int y) {
 		if (x <= row_size_ && y <= column_size_) {

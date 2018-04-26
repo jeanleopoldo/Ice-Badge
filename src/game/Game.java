@@ -21,8 +21,9 @@ public class Game {
 
 	public void set_players_on_table(int i, Player player) {
 		this.player_ = player;
-		this.player_.set_turn(true);
-
+		if (i == 1) {
+			this.player_.set_turn(true);
+		}
 	}
 
 	public String get_player_name() {
@@ -42,9 +43,12 @@ public class Game {
 	}
 
 	public Move move(Position clicked_position) {
-
-			System.out.println("move");
-
+		Position selected_position = this.player_.get_selected_position();
+		Character character = selected_position.get_character();
+		
+		clicked_position.set_character(character);
+		selected_position.remove_character();
+		
 
 		return null;
 	}
@@ -55,11 +59,10 @@ public class Game {
 
 		return new Move(TypeMove.CHANGE_TURN);
 	}
-	
-	
-	//##########################
-	//teste
-	
+
+	// ##########################
+	// teste
+
 	public Player get_opponent() {
 		return this.opponent_;
 	}
