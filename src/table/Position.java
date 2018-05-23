@@ -16,24 +16,24 @@ public class Position {
 		this.type_ = type;
 	}
 
-	public Character getCharacter() {
+	public Character get_character() {
 		return this.character_;
 	}
 
-	public void setCharacter(Character character) {
+	public void set_character(Character character) {
 		this.character_ = character;
 	}
 
-	public TypeTile getTile() {
+	public TypeTile get_tile() {
 		return this.type_;
 	}
 
-	public void setTile(TypeTile type) {
+	public void set_tile(TypeTile type) {
 		this.type_ = type;
 
 	}
 
-	public void removeCharacter() {
+	public void remove_character() {
 		this.character_ = null;
 
 	}
