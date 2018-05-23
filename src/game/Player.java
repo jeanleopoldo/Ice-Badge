@@ -7,58 +7,58 @@ import table.Position;
 public class Player {
 	protected String name_;
 	protected boolean turn_;
-	protected Position selected_position_;
-	protected ArrayList<Character> list_character_;
+	protected Position selectedPosition_;
+	protected ArrayList<Character> listCharacter_;
 	
 	public Player(String name) {
 		this.name_ = name;
-		this.list_character_ = new ArrayList<>();
+		this.listCharacter_ = new ArrayList<>();
 		this.turn_ = false;
 	}
 	
 	public Player() {
-		this.list_character_ = new ArrayList<>();
+		this.listCharacter_ = new ArrayList<>();
 		this.turn_ = false;
 		this.name_ = "Opponent";
 	}
 
-	public String get_name() {
+	public String getName() {
 		return this.name_;
 	}
-	public void set_name(String name) {
+	public void setName(String name) {
 		this.name_ = name;
 	}
 
-	public boolean is_turn() {
+	public boolean isTurn() {
 		return this.turn_;
 	}
 	
-	public void set_turn(boolean turn) {
+	public void setTurn(boolean turn) {
 		this.turn_ = turn;
 	}
 	
-	public void set_selected_position(Position position) {
-		this.selected_position_ = position;
+	public void setSelectedPosition(Position position) {
+		this.selectedPosition_ = position;
 	}
 	
-	public Position get_selected_position() {
-		return this.selected_position_;
+	public Position getSelectedPosition() {
+		return this.selectedPosition_;
 	}
 	
-	public void add_character(Character character) {
-		this.list_character_.add(character);
+	public void addCharacter(Character character) {
+		this.listCharacter_.add(character);
 	}
 	
-	public void remove_character(Character character) {
-		this.list_character_.remove(character);
+	public void removeCharacter(Character character) {
+		this.listCharacter_.remove(character);
 	}
 	
-	public ArrayList<Character> get_list_character() {
-		return this.list_character_;
+	public ArrayList<Character> getListCharacter() {
+		return this.listCharacter_;
 	}
 	
-	public boolean check_player_character(Character character) {
-		if (this.list_character_.contains(character))
+	public boolean checkPlayerCharacter(Character character) {
+		if (this.listCharacter_.contains(character))
 			return true;
 		return false;
 	}

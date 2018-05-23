@@ -9,5 +9,4 @@ public enum TypeTile {
 	MAIN_BASE_2,
 	TREE,
 	ROCK;
-
 }

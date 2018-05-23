@@ -6,7 +6,7 @@ public enum TypeCharacter {
 	ARCHER(30, 20, 0, 8, 2),
 	BARD(20, 20, 0, 2, 6);
 
-	TypeCharacter(int life, int power_attack, int power_healing, int range_attack, int range_move) {
+	TypeCharacter(int life, int powerAttack, int powerHealing, int rangeAttack, int rangeMove) {
 	}
 
 }

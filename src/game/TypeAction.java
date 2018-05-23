@@ -1,9 +1,8 @@
 package game;
 
-public enum TypeMove {
+public enum TypeAction {
 	
 	ATTACK,
 	MOVE,
 	CHANGE_TURN;
-
 }
