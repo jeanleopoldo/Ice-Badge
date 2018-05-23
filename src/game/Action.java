@@ -1,6 +1,6 @@
 package game;
 
-public class Move {
+public class Action {
 	
 	protected int init_x;
 	protected int init_y;
@@ -8,7 +8,7 @@ public class Move {
 	protected int end_y;
 	protected TypeMove type_;
 	
-	public Move(TypeMove type) {
+	public Action(TypeMove type) {
 		this.type_ = type;
 	}
 }

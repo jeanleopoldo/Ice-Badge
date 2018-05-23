@@ -7,40 +7,40 @@ public class Control {
 	protected Game game_;
 	protected Player player_;
 
-	public void create_player(String name) {
+	public void createPslayer(String name) {
 		player_ = new Player(name);
 	}
 
-	public void receive_begin_message(int i) {
+	public void receiveBeginMessage(int i) {
 		this.game_ = new Game(32, 32);
-		this.game_.set_players_on_table(i, this.player_);
+		this.game_.setPlayersOnTable(i, this.player_);
 	}
 
-	public Move change_turn() {
-		if (this.player_.is_turn()) {
-			return this.game_.change_turn();
+	public Action changeTurn() {
+		if (this.player_.isTurn()) {
+			return this.game_.changeTurn();
 		}
 		return null;
 	}
 
-	public Move move(int x, int y) {
-		Position clicked_position = null;
+	public Action makeActions(int x, int y) {
+		Position clickedPosition = null;
 		Character character;
 		
-		if (this.player_.is_turn()) {
-			clicked_position = this.game_.get_position(x, y);
-			character = clicked_position.get_character();
+		if (this.player_.isTurn()) {
+			clickedPosition = this.game_.getPosition(x, y);
+			character = clickedPosition.getCharacter();
 
-			if (clicked_position.get_character() != null) {
+			if (clickedPosition.getCharacter() != null) {
 
-				if (this.player_.check_player_character(character)) {
-					return this.game_.select_position(clicked_position);
+				if (this.player_.checkPlayerCharacter(character)) {
+					return this.game_.selectPosition(clickedPosition);
 				}
 
-				return this.game_.attack(clicked_position);
+				return this.game_.attack(clickedPosition);
 			}
 
-			return this.game_.move(clicked_position);
+			return this.game_.move(clickedPosition);
 		}
 		return null;
 	}

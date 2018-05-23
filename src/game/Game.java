@@ -14,56 +14,56 @@ public class Game {
 		this.opponent_ = new Player();
 	}
 
-	public Position get_position(int x, int y) {
-		return this.table_.get_position(x, y);
+	public Position getPosition(int x, int y) {
+		return this.table_.getPosition(x, y);
 
 	}
 
-	public void set_players_on_table(int i, Player player) {
+	public void setPlayersOnTable(int i, Player player) {
 		this.player_ = player;
 		if (i == 1) {
-			this.player_.set_turn(true);
+			this.player_.setTurn(true);
 		}
 	}
 
-	public String get_player_name() {
-		return this.player_.get_name();
+	public String getPlayerName() {
+		return this.player_.getName();
 	}
 
-	public Move select_position(Position clicked_position) {
-		if (this.player_.get_selected_position() == null)
-			this.player_.set_selected_position(clicked_position);
+	public Action selectPosition(Position clickedPosition) {
+		if (this.player_.getSelectedPosition() == null)
+			this.player_.setSelectedPosition(clickedPosition);
 		System.out.println("select");
 		return null;
 	}
 
-	public Move attack(Position clicked_position) {
+	public Action attack(Position clickedPosition) {
 		System.out.println("attack");
 		return null;
 	}
 
-	public Move move(Position clicked_position) {
-		Position selected_position = this.player_.get_selected_position();
-		Character character = selected_position.get_character();
+	public Action move(Position clickedPosition) {
+		Position selectedPosition = this.player_.getSelectedPosition();
+		Character character = selectedPosition.getCharacter();
 		
-		clicked_position.set_character(character);
-		selected_position.remove_character();
+		clickedPosition.setCharacter(character);
+		selectedPosition.removeCharacter();
 		
 
 		return null;
 	}
 
-	public Move change_turn() {
-		this.player_.set_turn(false);
-		this.opponent_.set_turn(true);
+	public Action changeTurn() {
+		this.player_.setTurn(false);
+		this.opponent_.setTurn(true);
 
-		return new Move(TypeMove.CHANGE_TURN);
+		return new Action(TypeMove.CHANGE_TURN);
 	}
 
 	// ##########################
 	// teste
 
-	public Player get_opponent() {
+	public Player getOpponent() {
 		return this.opponent_;
 	}
 
