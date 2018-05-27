@@ -56,6 +56,14 @@ public class Control {
 		return null;
 	}
 
+	public void selectCharacter(TypeCharacter type) {
+		System.out.println(this.player_.isTurn());
+		if (this.player_.isTurn()) {
+			this.game_.selectCharacter(this.player_, type);
+
+		}
+	}
+
 	// #############################################
 	// TESTS
 

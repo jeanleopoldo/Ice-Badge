@@ -4,5 +4,7 @@ public enum TypeAction {
 	
 	ATTACK,
 	MOVE,
-	CHANGE_TURN;
+	CHANGE_TURN,
+	SELECT_CHARACTER;
+	
 }

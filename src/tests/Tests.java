@@ -18,18 +18,29 @@ public class Tests {
 		this.control_ = control;
 		this.control_.receiveBeginMessage(1);
 		this.game_ = this.control_.getGame();
+		
+		
+		
+		testCreatePlayers();
+		testMove();
+		testBases();
+		testSelectCharacter();
+	}
+
+	private void testSelectCharacter() {
+		this.control_.selectCharacter(TypeCharacter.CLERIG);
+		
+	}
+
+	private void testCreatePlayers() {
 		this.player_ = this.control_.getPlayer();
 		this.player_.setName("Player 1");
 		this.opponent_= this.game_.getOpponent();
 		this.opponent_.setName("Player 2");
 		
-		this.player_.getMainBase();
-		this.opponent_.getMainBase();
-		
-		test_move();
 	}
 
-	public void test_move() {
+	private void testMove() {
 		Character cPl = new Character(20, 20, 20, 20, TypeCharacter.SWORDSMAN);
 		Character cOp = new Character(20, 20, 20, 20, TypeCharacter.SWORDSMAN);
 		
@@ -46,8 +57,11 @@ public class Tests {
 		this.control_.makeAction(11, 13);
 		this.control_.makeAction(11, 12);
 		
-		this.control_.changeTurn();
-		
+	}
+	
+	private void testBases() {
+		this.player_.getMainBase();
+		this.opponent_.getMainBase();
 	}
 
 }

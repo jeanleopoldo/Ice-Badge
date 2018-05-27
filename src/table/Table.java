@@ -1,5 +1,8 @@
 package table;
 
+import game.Character;
+import game.Player;
+
 public class Table {
 
 	protected Position[][] positions_;
@@ -46,6 +49,10 @@ public class Table {
 
 	public Position[] getMainBases() {
 		return this.mainBases_;
+	}
+
+	public void setCharacterOnTable(Player player, Character character) {
+		
 	}
 
 }

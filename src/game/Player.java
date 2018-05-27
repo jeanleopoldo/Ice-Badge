@@ -53,6 +53,7 @@ public class Player {
 
 	public void addCharacter(Character character) {
 		this.listCharacter_.add(character);
+		System.out.println(character.type_+"'s been added");
 	}
 
 	public void removeCharacter(Character character) {
