@@ -16,11 +16,16 @@ public class Tests {
 
 	public Tests(Control control) {
 		this.control_ = control;
-		this.control_.create_player("Jean");
-		this.control_.receive_begin_message(1);
-		this.game_ = this.control_.get_game();
-		this.player_ = this.control_.get_player();
-		this.opponent_= this.game_.get_opponent();
+		this.control_.receiveBeginMessage(1);
+		this.game_ = this.control_.getGame();
+		this.player_ = this.control_.getPlayer();
+		this.player_.setName("Player 1");
+		this.opponent_= this.game_.getOpponent();
+		this.opponent_.setName("Player 2");
+		
+		this.player_.getMainBase();
+		this.opponent_.getMainBase();
+		
 		test_move();
 	}
 
@@ -28,20 +33,20 @@ public class Tests {
 		Character cPl = new Character(20, 20, 20, 20, TypeCharacter.SWORDSMAN);
 		Character cOp = new Character(20, 20, 20, 20, TypeCharacter.SWORDSMAN);
 		
-		Position p1 = this.game_.get_position(10, 10);
-		Position p2 = this.game_.get_position(11, 12);
+		Position p1 = this.game_.getPosition(10, 10);
+		Position p2 = this.game_.getPosition(11, 12);
 		
-		this.player_.add_character(cPl);
-		this.opponent_.add_character(cOp);
+		this.player_.addCharacter(cPl);
+		this.opponent_.addCharacter(cOp);
 		
-		p1.set_character(cPl);
-		p2.set_character(cOp);
+		p1.setCharacter(cPl);
+		p2.setCharacter(cOp);
 		
-		this.control_.move(10, 10);
-		this.control_.move(11, 13);
-		this.control_.move(11, 12);
+		this.control_.makeAction(10, 10);
+		this.control_.makeAction(11, 13);
+		this.control_.makeAction(11, 12);
 		
-		this.control_.change_turn();
+		this.control_.changeTurn();
 		
 	}
 

@@ -38,4 +38,11 @@ public class Position {
 
 	}
 
+	public int getX() {
+		return this.x_;
+	}
+	public int getY() {
+		return this.y_;
+	}
+
 }

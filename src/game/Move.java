@@ -6,9 +6,9 @@ public class Move {
 	protected int init_y;
 	protected int end_x;
 	protected int end_y;
-	protected TypeMove type_;
+	protected TypeAction type_;
 	
-	public Move(TypeMove type) {
+	public Move(TypeAction type) {
 		this.type_ = type;
 	}
 }

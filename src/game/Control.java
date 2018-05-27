@@ -1,14 +1,25 @@
 package game;
 
+import netgames.ActorNetGames;
 import table.Position;
 
 public class Control {
 
+	protected ActorNetGames netgames_;
 	protected Game game_;
 	protected Player player_;
 
-	public void createPslayer(String name) {
-		player_ = new Player(name);
+	public Control() {
+		this.player_ = new Player();
+		this.netgames_ = new ActorNetGames(this);
+	}
+
+	public void connect() {
+		// this.netgames_.connect();
+	}
+
+	public void startGame() {
+		this.netgames_.startGame();
 	}
 
 	public void receiveBeginMessage(int i) {
@@ -26,7 +37,7 @@ public class Control {
 	public Action makeAction(int x, int y) {
 		Position clickedPosition = null;
 		Character character;
-		
+
 		if (this.player_.isTurn()) {
 			clickedPosition = this.game_.getPosition(x, y);
 			character = clickedPosition.getCharacter();
@@ -48,11 +59,11 @@ public class Control {
 	// #############################################
 	// TESTS
 
-	public Game get_game() {
+	public Game getGame() {
 		return this.game_;
 	}
 
-	public Player get_player() {
+	public Player getPlayer() {
 		return this.player_;
 	}
 }

@@ -20,9 +20,18 @@ public class Game {
 	}
 
 	public void setPlayersOnTable(int i, Player player) {
+		this.table_.createTable(2);
+		Position mainBases[] = this.table_.getMainBases();
+
 		this.player_ = player;
+
 		if (i == 1) {
 			this.player_.setTurn(true);
+			this.player_.addBase(mainBases[0]);
+			this.opponent_.addBase(mainBases[1]);
+		} else {
+			this.player_.addBase(mainBases[1]);
+			this.opponent_.addBase(mainBases[0]);
 		}
 	}
 
@@ -45,10 +54,9 @@ public class Game {
 	public Action move(Position clickedPosition) {
 		Position selectedPosition = this.player_.getSelectedPosition();
 		Character character = selectedPosition.getCharacter();
-		
+
 		clickedPosition.setCharacter(character);
 		selectedPosition.removeCharacter();
-		
 
 		return null;
 	}
