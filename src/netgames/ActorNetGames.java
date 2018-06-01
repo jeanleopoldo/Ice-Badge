@@ -1,5 +1,7 @@
 package netgames;
 
+import javax.swing.JOptionPane;
+
 import br.ufsc.inf.leobr.cliente.Jogada;
 import br.ufsc.inf.leobr.cliente.OuvidorProxy;
 import br.ufsc.inf.leobr.cliente.Proxy;
@@ -19,8 +21,7 @@ public class ActorNetGames implements OuvidorProxy {
 
 	@Override
 	public void iniciarNovaPartida(Integer posicao) {
-		
-
+		this.control_.receiveBeginMessage(posicao);
 	}
 
 	@Override
@@ -52,11 +53,12 @@ public class ActorNetGames implements OuvidorProxy {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public void startGame() {
 		try {
 			this.proxy_.iniciarPartida(2);
 		} catch (NaoConectadoException e) {
+			new JOptionPane().setMessage("You're disconnected");
 			e.printStackTrace();
 		}
 	}
@@ -65,12 +67,26 @@ public class ActorNetGames implements OuvidorProxy {
 		try {
 			this.proxy_.conectar(ip, name);
 		} catch (JahConectadoException e) {
+			new JOptionPane().setMessage("You're already connected");
 			e.printStackTrace();
 		} catch (NaoPossivelConectarException e) {
+			new JOptionPane().setMessage("ERROR CONNECTING");
 			e.printStackTrace();
 		} catch (ArquivoMultiplayerException e) {
+			new JOptionPane().setMessage("ERROR CONNECTING");
 			e.printStackTrace();
 		}
+	}
+
+	public void disconnect() {
+		try {
+			this.proxy_.desconectar();
+		} catch (NaoConectadoException e) {
+
+			new JOptionPane().setMessage("You're already disconnected");
+			e.printStackTrace();
+		}
+
 	}
 
 }

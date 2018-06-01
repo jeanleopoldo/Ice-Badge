@@ -6,9 +6,9 @@ import game.Player;
 public class Table {
 
 	protected Position[][] positions_;
+	protected Position mainBases_[];
 	protected int rowSize_;
 	protected int columnSize_;
-	protected Position mainBases_[];
 
 	public Table(int rowSize, int columnSize) {
 		this.rowSize_ = rowSize;
@@ -35,7 +35,6 @@ public class Table {
 
 		Position mainBase2 = this.getPosition(31, 15);
 		mainBase2.setTile(TypeTile.MAIN_BASE_2);
-		
 		this.mainBases_[1] = mainBase2;
 
 	}
@@ -52,7 +51,7 @@ public class Table {
 	}
 
 	public void setCharacterOnTable(Player player, Character character) {
-		
+
 	}
 
 }

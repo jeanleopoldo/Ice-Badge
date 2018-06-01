@@ -42,8 +42,7 @@ public class Game {
 	public Action selectPosition(Position clickedPosition) {
 		if (this.player_.getSelectedPosition() == null)
 			this.player_.setSelectedPosition(clickedPosition);
-		System.out.println("select");
-		return null;
+		return new Action(null, null, TypeAction.SELECT_CHARACTER);
 	}
 
 	public Action attack(Position clickedPosition) {
@@ -58,14 +57,14 @@ public class Game {
 		clickedPosition.setCharacter(character);
 		selectedPosition.removeCharacter();
 
-		return new Action(TypeAction.MOVE);
+		return new Action(selectedPosition, clickedPosition, TypeAction.MOVE);
 	}
 
 	public Action changeTurn() {
 		this.player_.setTurn(false);
 		this.opponent_.setTurn(true);
 
-		return new Action(TypeAction.CHANGE_TURN);
+		return new Action(null, null, TypeAction.CHANGE_TURN);
 	}
 
 	public void selectCharacter(Player player, TypeCharacter type) {

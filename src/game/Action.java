@@ -1,21 +1,28 @@
 package game;
 
+import table.Position;
+
 public class Action {
-	protected int initX;
-	protected int initY;
-	protected int endX;
-	protected int endY;
+	protected Position playerPosition;
+	protected Position finalPosition;
 	protected TypeAction type_;
 
-	public Action(TypeAction type) {
-
+	public Action(Position playerPosition, Position finalPosition, TypeAction type) {
+		this.playerPosition = playerPosition;
+		this.finalPosition = finalPosition;
+		this.type_ = type;
 	}
 
-	public Action(int initX, int initY, int endX, int endY) {
-		this.initX = initX;
-		this.initY = initY;
-		this.endX = endX;
-		this.endY = endY;
+	public Position getPlayerPosition() {
+		return playerPosition;
+	}
+
+	public Position getFinalPosition() {
+		return finalPosition;
+	}
+
+	public TypeAction getType_() {
+		return type_;
 	}
 
 }
