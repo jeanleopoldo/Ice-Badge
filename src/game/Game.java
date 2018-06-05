@@ -102,11 +102,12 @@ public class Game {
 		}
 	}
 
-	// ##########################
-	// teste
-
 	public Player getOpponent() {
 		return this.opponent_;
+	}
+
+	public Table getTable() {
+		return this.table_;
 	}
 
 }

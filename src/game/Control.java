@@ -5,6 +5,7 @@ import gui.GUISelectCharacter;
 import gui.GUITable;
 import netgames.ActorNetGames;
 import table.Position;
+import table.Table;
 
 public class Control {
 
@@ -14,7 +15,6 @@ public class Control {
 	protected ActorNetGames netgames_;
 	protected Game game_;
 	protected Player player_;
-	protected boolean firstPlayer_;
 	protected int characterLeft_;
 
 	public void run() {
@@ -22,11 +22,13 @@ public class Control {
 		this.netgames_ = new ActorNetGames(this);
 		this.characterLeft_ = this.NUMBER_OF_PLAYERS;
 		new GUIInitMenu(this);
+		
 	}
 
 	// NOT IMPLEMENTED CORRECTLY
+	// ######
 	public void connect() {
-		this.netgames_.connect(null, null);
+		this.netgames_.connect("", null);
 	}
 
 	public void disconnect() {
@@ -35,6 +37,7 @@ public class Control {
 
 	public void startGame() {
 		this.netgames_.startGame();
+		new GUITable(this);
 	}
 
 	public void receiveBeginMessage(int i) {
@@ -86,13 +89,13 @@ public class Control {
 		}
 
 		if (this.characterLeft_ == 0) {
-			new GUITable(this);
 			System.out.println(this.player_.isTurn());
 		}
 	}
 
-	// #############################################
-	// TESTS
+	public void quit() {
+
+	}
 
 	public Game getGame() {
 		return this.game_;
@@ -101,4 +104,9 @@ public class Control {
 	public Player getPlayer() {
 		return this.player_;
 	}
+
+	public Table getTable() {
+		return this.game_.getTable();
+	}
+
 }

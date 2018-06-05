@@ -81,7 +81,7 @@ public class GUIInitMenu extends JFrame {
 		// ################## EXIT ##################
 
 		JButton exit = new JButton("EXIT");
-		gbc.gridy++;
+		
 		exit.addActionListener(new ActionListener() {
 
 			@Override
@@ -93,7 +93,7 @@ public class GUIInitMenu extends JFrame {
 			}
 		});
 		this.panel_.add(exit, gbc);
-
+		gbc.gridy++;
 	}
 
 }

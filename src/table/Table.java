@@ -54,4 +54,11 @@ public class Table {
 
 	}
 
+	public int getHeight() {
+		return this.rowSize_;
+	}
+	public int getWidth() {
+		return this.columnSize_;
+	}
+
 }
